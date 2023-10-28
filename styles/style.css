@@ -414,7 +414,7 @@ p.description {
 
 .cheese {
   position: absolute;
-  width: 600px;
+  width: 600px; 
   height: 600px;
   border-radius: 700px;
   background: #f3d255;
@@ -1062,8 +1062,10 @@ footer a:hover {
 
 #crumbs {
   opacity: 0;
+  transition: all 0.3s linear; 
   -webkit-transition: all 0.3s linear;
-}
+ }
+
 
 @media screen and (max-width: 720px) {
   body {
