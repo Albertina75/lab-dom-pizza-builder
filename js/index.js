@@ -70,23 +70,23 @@ function renderWhiteSauce() {
     if (state.whiteSauce) {
       sauce.classList.add('sauce-white');
 
-    }else {
+    } else {
       sauce.classList.remove('sauce-white');
     }
-  })
+  });
 }
 
 function renderGlutenFreeCrust() {
   // Iteration 2: add/remove the class "crust-gluten-free" of `<section class="crust">`
-  const sauceElements = document.querySelectorAll('.crust');
-  sauceElements.forEach(crust => {
+  const crustElements = document.querySelectorAll('.crust');
+  crustElements.forEach(crust => {
     if (state.glutenFreeCrust) {
       crust.classList.add('crust-gluten-free');
 
-    }else {
+    } else {
       crust.classList.remove('crust-gluten-free');
     }
-  })
+  });
 
 
 
@@ -94,12 +94,66 @@ function renderGlutenFreeCrust() {
 
 function renderButtons() {
   // Iteration 3: add/remove the class "active" of each `<button class="btn">`
-}
+  
+    const pepperoniButton = document.querySelector('.btn.btn-pepperoni');
+    if (state.pepperoni) {
+      pepperoniButton.classList.add('active');
+    } else {
+      pepperoniButton.classList.remove('active');
+    }
+  
+    const mushroomsButton = document.querySelector('.btn.btn-mushrooms');
+    if (state.mushrooms) {
+      mushroomsButton.classList.add('active');
+    } else {
+      mushroomsButton.classList.remove('active');
+    }
+  
+    const greenPepperButton = document.querySelector('.btn.btn-green-peppers');
+    if (state.greenPeppers) {
+      greenPepperButton.classList.add('active');
+    } else {
+      greenPepperButton.classList.remove('active');
+    }
+  
+    const whiteSauceButton = document.querySelector('.btn.btn-sauce');
+    if (state.whiteSauce) {
+      whiteSauceButton.classList.add('active');
+    } else {
+      whiteSauceButton.classList.remove('active');
+    }
+  
+    const glutenFreeCrustButton = document.querySelector('.btn.btn-crust');
+    if (state.glutenFreeCrust) {
+      glutenFreeCrustButton.classList.add('active');
+    } else {
+      glutenFreeCrustButton.classList.remove('active');
+    }
+  }
+
+  
+
+
+
 
 function renderPrice() {
-  // Iteration 4: change the HTML of `<aside class="panel price">`
-}
 
+
+  // Iteration 4: change the HTML of `<aside class="panel price">`
+
+  const priceElement = document.querySelector('.panel.price strong');
+  const ingredientList = document.querySelectorAll('.panel.price ul li');
+  let totalPrice = basePrice;
+
+  ingredientList.forEach((ingredientItem) => {
+    const ingredientName = ingredientItem.textContent.slice(1); 
+    const ingredientPrice = ingredients[ingredientName];
+    if (state[ingredientName]){
+      totalPrice += ingredientPrice;
+    }
+  });
+    priceElement.ingredientPrice =`$${totalPrice}`;
+}
 renderEverything();
 
 // Iteration 1: Example of a click event listener on `<button class="btn btn-pepperoni">`
