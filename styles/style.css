@@ -1062,9 +1062,8 @@ footer a:hover {
 
 #crumbs {
   opacity: 0;
-  transition: all 0.3s linear; 
-  -webkit-transition: all 0.3s linear;
- }
+  transition: all 0.3s linear; /* Standard transition property */
+}
 
 
 @media screen and (max-width: 720px) {
